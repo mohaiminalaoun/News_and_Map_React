@@ -1,0 +1,9 @@
+#SearchResults {
+  margin-top: 60px;
+}
+
+
+#text-results {
+  height: 100vh;
+  overflow: scroll;
+}
