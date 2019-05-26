@@ -10,7 +10,6 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
     return prev;
 }, {});
 
-console.log(new webpack.DefinePlugin(envKeys));
 
 module.exports = {
   mode: 'development',

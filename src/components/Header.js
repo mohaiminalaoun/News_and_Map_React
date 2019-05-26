@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Searchbox from './Searchbox';
 import PropTypes from 'prop-types';
 import { Button, AppBar, Toolbar, Typography } from '@material-ui/core';
+import GoogleLogin from 'react-google-login';
+import Chip from '@material-ui/core/Chip';
 import './Header.css'
 
 
@@ -11,9 +13,25 @@ class Header extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      value: ''
+      value: '',
+      renderLogin: <GoogleLogin
+          clientId={process.env.GOOGLE_API_KEY+".apps.googleusercontent.com"}
+          buttonText="Login"
+          onSuccess={this.responseGoogle.bind(this)}
+          onFailure={this.responseGoogle.bind(this)}
+        />
     };
+
+
   }
+
+
+  responseGoogle(response){
+    this.props.getUserInfo(response);
+  }
+
+
+
 
   render() {
     return (
@@ -24,12 +42,22 @@ class Header extends React.Component {
             id="mainAppBar">
             <Toolbar>
               <Typography className="title" variant="headline" color="inherit">
-                ACME
+                R E P O R T I R
               </Typography>
-              <Button className="loginButton" color="inherit">Login</Button>
+            {
+              (() => {
+              if (this.props && this.props.userInfo && this.props.userInfo.w3 && this.props.userInfo.w3.ig) {
+                return <Chip label={this.props.userInfo.w3.ig}/>
+              } else {
+                return this.state.renderLogin
+              }
+
+            })()
+            }
+
             </Toolbar>
         </AppBar>
-        <Searchbox newsHeadlines={this.props.newsHeadlines} sendCountyRequest={this.props.sendCountyRequest}/>
+      <Searchbox newsHeadlines={this.props.newsHeadlines} sendCountyRequest={this.props.sendCountyRequest}/>
       </header>
       </div>
     );

@@ -20,8 +20,10 @@ class Content extends Component {
           description:'',
           title:''
         }], // DEAFULT
+        userInfo : null
     };
     this.sendCountyRequest = this.sendCountyRequest.bind(this);
+    this.getUserInfo = this.getUserInfo.bind(this);
 
   }
 
@@ -36,10 +38,14 @@ class Content extends Component {
     countryApiCall(event.target.value, callback);
   }
 
+  getUserInfo(res) {
+    this.setState({userInfo: res})
+  }
+
   render() {
     return (
       <div>
-      <Header sendCountyRequest={this.sendCountyRequest}/>
+      <Header sendCountyRequest={this.sendCountyRequest} userInfo={this.state.userInfo} getUserInfo={this.getUserInfo}/>
       <SearchResults newsHeadlines={this.state.newsHeadlines}/>
       </div>
 
