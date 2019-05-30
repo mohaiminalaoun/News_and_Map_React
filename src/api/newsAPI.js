@@ -2,9 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const sendCountyRequest = (country, callback) => {
+const sendCountyRequest = (searchItem, callback) => {
   var x = new XMLHttpRequest();
-  x.open('GET','https://newsapi.org/v2/everything?q='+country+'&apiKey='+process.env.NEWS_API_KEY);
+  x.open('GET','https://newsapi.org/v2/everything?q='+searchItem+'&apiKey='+process.env.NEWS_API_KEY);
 
   x.send();
 

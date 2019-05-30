@@ -25,7 +25,7 @@ class Searchbox extends React.Component {
 
   onEnter(event) {
     if(event.key == 'Enter'){
-       this.props.sendCountyRequest(event);
+       this.props.sendTwitterReq(event);
        event.target.blur();
      }
   }
@@ -50,7 +50,7 @@ class Searchbox extends React.Component {
 
 Searchbox.propTypes = {
   newsHeadlines: PropTypes.array,
-  sendCountyRequest: PropTypes.func
+  sendTwitterReq: PropTypes.func
 };
 
 export default Searchbox;

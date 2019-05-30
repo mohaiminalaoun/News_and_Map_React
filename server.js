@@ -16,7 +16,7 @@ server.get('/test', (req, res) => {
     res.send("Hello world");
 });
 
-server.get('/twitter/:searchQuery', function (req, res) {
+server.get('/twitter/:searchQuery',  (req, res) => {
     client.get('search/tweets', { q: req.params.searchQuery })
         .then(function(response) {
             //console.log(response.statuses);

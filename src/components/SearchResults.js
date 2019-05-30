@@ -21,17 +21,25 @@ class SearchResults extends React.Component {
   }
 
   render() {
+    const cardStyle = {
+        display: 'block',
+        transitionDuration: '0.3s',
+        height: '200px'
+      },
+      headlineStyle = {
+        fontSize: '1.1rem'
+      };
     return (
 
             <Grid id="SearchResults" container spacing={16}>
               <Grid item xs={6} id="text-results">
               {this.props.newsHeadlines.map(article => (
-                      <Card className="newsCard">
+                      <Card className="newsCard" style={cardStyle}>
                         <CardContent>
                                 <Typography color="textSecondary" gutterBottom>
                                   {article.publishedAt}
                                 </Typography>
-                                <Typography variant="h5" component="h4" className="headline">
+                                <Typography variant="h5" component="h4" className="headline" style={headlineStyle}>
                                   {article.title}
                                 </Typography>
                                 <Typography color="textSecondary">
@@ -41,7 +49,7 @@ class SearchResults extends React.Component {
                                   {article.description}
                                   </Typography>
 
-                                  <Typography color="textSecondary">{article.source.name}</Typography>
+                                  <Typography color="textSecondary">{}</Typography>
 
                         </CardContent>
                       <CardActions>

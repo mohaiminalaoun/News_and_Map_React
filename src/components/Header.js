@@ -57,7 +57,7 @@ class Header extends React.Component {
 
             </Toolbar>
         </AppBar>
-      <Searchbox newsHeadlines={this.props.newsHeadlines} sendCountyRequest={this.props.sendCountyRequest}/>
+      <Searchbox newsHeadlines={this.props.newsHeadlines} sendTwitterReq={this.props.sendTwitterReq}/>
       </header>
       </div>
     );
@@ -67,7 +67,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   newsHeadlines: PropTypes.array,
-  sendCountyRequest: PropTypes.func
+  sendTwitterReq: PropTypes.func
 };
 
 export default Header;
